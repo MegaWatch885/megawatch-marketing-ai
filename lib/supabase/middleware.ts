@@ -34,12 +34,14 @@ export async function updateSession(request: NextRequest) {
 
   const pathname = request.nextUrl.pathname;
 
-  const publicRoutes = [
-    "/login",
-    "/signup",
-    "/forgot-password",
-    "/reset-password",
-  ];
+ const publicRoutes = [
+  "/login",
+  "/signup",
+  "/forgot-password",
+  "/reset-password",
+  "/privacy-policy",
+];
+
   const isPublicRoute = publicRoutes.some(
     (route) =>
       pathname === route || pathname.startsWith(`${route}/`)
