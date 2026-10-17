@@ -14,3 +14,24 @@ export async function uploadVideo(file: File) {
     path: data.path,
   };
 }
+
+export async function deleteVideo(
+  storageKey: string
+) {
+  const { error } =
+    await supabase.storage
+      .from("content-media")
+      .remove([storageKey]);
+
+  if (error) throw error;
+}
+
+export async function getVideoUrl(storageKey: string) {
+  const { data, error } = await supabase.storage
+    .from("content-media")
+    .createSignedUrl(storageKey, 60 * 60);
+
+  if (error) throw error;
+
+  return data.signedUrl;
+}

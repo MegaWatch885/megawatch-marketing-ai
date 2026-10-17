@@ -1,8 +1,10 @@
+
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  allowedDevOrigins: ["sleep-rising-subarctic.ngrok-free.dev"],
   reactCompiler: true,
 };
 
 export default nextConfig;
+
